@@ -1,6 +1,6 @@
 {
   "name": "vitest-jest-dom",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha.1",
   "description": "A plugin to easily integrate Jest DOM into Vitest",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
