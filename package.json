@@ -1,12 +1,61 @@
 {
   "name": "vitest-jest-dom",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A plugin to easily integrate Jest DOM into Vitest",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "build:package": "run-s clear-package build",
+    "lint:staged": "lint-staged",
+    "clear-package": "node scripts/clear-package.mjs",
+    "exec": "ts-node src/index",
+    "dev": "nodemon",
+    "format": "prettier --config \"./.prettierrc\" --write \"**/*.{js,mjs,ts,json}\"",
+    "prepare": "husky"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "lint-staged": {
+    "**/*.{js,mjs,ts,json}": "npm run format"
+  },
+  "author": {
+    "name": "Nirvik Purkait"
+  },
+  "homepage": "https://github.com/nirvikpurkait/vitest-jest-dom#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nirvikpurkait/vitest-jest-dom.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.7.7",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "nodemon": "^3.1.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.6.3"
+  },
+  "files": [
+    "types",
+    "dist"
+  ],
+  "keywords": [
+    "vitest",
+    "jest dom",
+    "jest-dom",
+    "vitest-jest-dom"
+  ],
+  "nodemonConfig": {
+    "exec": "npm run exec",
+    "ext": "ts",
+    "watch": [
+      "src"
+    ]
+  },
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
 }
